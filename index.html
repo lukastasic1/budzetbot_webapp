@@ -22,7 +22,7 @@
                 window.Telegram.WebApp.showScanQrPopup({text: 'Sken text'}, (qr_text) => {
                   
                     // send a post request to fetch with init data string and qr text as params 
-                    url = "myurl"
+                    url = "http://192.168.1.8:8000/racun"
                     data = {
                         init_data: init_data_string,
                         qr_url: qr_text
