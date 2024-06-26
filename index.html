@@ -15,9 +15,27 @@
 
             window.addEventListener('load', () => {
                 // Your code here
+
+                var init_data_string = window.Telegram.WebApp.initData
+                console.log(init_data_string)
                 
                 window.Telegram.WebApp.showScanQrPopup({text: 'Sken text'}, (qr_text) => {
-                  window.Telegram.WebApp.answerWebAppQuery(qr_text);
+                  
+                    // send a post request to fetch with init data string and qr text as params 
+                    url = "myurl"
+                    data = {
+                        init_data: init_data_string,
+                        qr_url: qr_text
+                    }
+                    fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    })
+
+
                 })
                 console.log("Page is fully loaded");
             });
