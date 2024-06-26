@@ -16,7 +16,7 @@
             window.addEventListener('load', () => {
                 // Your code here
                 
-                window.Telegram.WebApp.showScanQrPopup(text = 'Sken text', (qr_text) => {
+                window.Telegram.WebApp.showScanQrPopup({text: 'Sken text'}, (qr_text) => {
                   window.Telegram.WebApp.answerWebAppQuery(qr_text);
                 })
                 console.log("Page is fully loaded");
