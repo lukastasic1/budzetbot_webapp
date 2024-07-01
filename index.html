@@ -17,8 +17,7 @@
 
             window.Telegram.WebApp.showScanQrPopup({ text: 'Sken tasdasddasdext' }, (data) => {
                 console.log(data);
-                window.Telegram.WebApp.closeQrScanPopup();
-                window.Telegram.WebApp.close();
+                return true
             });
             
             
