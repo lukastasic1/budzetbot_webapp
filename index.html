@@ -12,6 +12,15 @@
 
     <script>
 
+
+window.addEventListener('qrTextReceived', (event) => {
+            // Your code here
+
+    
+            console.log(event.data)
+            window.Telegram.WebApp.close()
+        });
+
         // on load:
         // show the QR code scanner
 
@@ -24,13 +33,7 @@
 
         // on QR code scan:
         
-        // window.addEventListener('qrTextReceived', (event) => {
-        //     // Your code here
-
-
-        //     console.log(event.data)
-        //     window.Telegram.WebApp.close()
-        // });
+      
 
     </script>
 
