@@ -21,22 +21,19 @@
             var init_data_string = window.Telegram.WebApp.initData
             console.log(init_data_string)
 
-            window.Telegram.WebApp.showScanQrPopup({ text: 'Sken text' }, (qr_text) => {
-
-                // send a get request to fetch with
-                url = "http://109.245.66.134:8000/test"
-                response = fetch(url, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                })
-
-                console.log(response);
-                console.log("Page is fully loaded");
-            });
+            window.Telegram.WebApp.showScanQrPopup({ text: 'Sken text' });
             
             });
+
+        // on QR code scan:
+        
+        window.addEventListener('qrTextReceived', (event) => {
+            // Your code here
+
+            
+            console.log(event.data)
+            window.Telegram.WebApp.close()
+        });
 
     </script>
 
