@@ -13,21 +13,24 @@
     <script>
 
 
-window.addEventListener('qrTextReceived', (event) => {
-            // Your code here
+        window.Telegram.WebApp.onEvent('qrTextReceived', (data) => {
+            console.log('uslo je, radi onEvent');
+            console.log('pokusavam da saljem api request:');
+            result = fetch('http://109.245.66.134:8000/test', {
+                method: 'GET`',
+                headers: {
+                    'Content-Type': 'application/json',
+                }})
+                .then(response => response.json())
 
-    
-            console.log(event.data)
-            window.Telegram.WebApp.close()
+            console.log(result);
+            window.Telegram.WebApp.close();
         });
 
         // on load:
         // show the QR code scanner
 
-            window.Telegram.WebApp.showScanQrPopup({ text: 'Sken tasdasddasdext' }, (data) => {
-                console.log(data);
-                return true
-            });
+            window.Telegram.WebApp.showScanQrPopup({ text: 'Sken tasdasddasdext' });
             
             
 
