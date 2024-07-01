@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Scanner</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
+
 <body>
-   
+
     <script>
 
         // on load:
         // show the QR code scanner
 
-            window.addEventListener('load', () => {
-                // Your code here
+        window.addEventListener('load', () => {
+            // Your code here
 
-                var init_data_string = window.Telegram.WebApp.initData
-                console.log(init_data_string)
-                
-                window.Telegram.WebApp.showScanQrPopup({text: 'Sken text'}, (qr_text) => {
-                  
-                    // send a post request to fetch with init data string and qr text as params 
-                    url = "http://192.168.1.8:8000/racun"
-                    data = {
-                        init_data: init_data_string,
-                        qr_url: qr_text
+            var init_data_string = window.Telegram.WebApp.initData
+            console.log(init_data_string)
+
+            window.Telegram.WebApp.showScanQrPopup({ text: 'Sken text' }, (qr_text) => {
+
+                // send a get request to fetch with
+                url = "http://109.245.66.134:8000/test"
+                response = fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
                     }
-                    fetch(url, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data)
-                    })
-
-
                 })
+
+                console.log(response);
                 console.log("Page is fully loaded");
             });
             
+            });
+
     </script>
 
 </body>
+
 </html>
