@@ -15,25 +15,23 @@
         // on load:
         // show the QR code scanner
 
-        window.addEventListener('load', () => {
-            // Your code here
-
-            var init_data_string = window.Telegram.WebApp.initData
-            console.log(init_data_string)
-
-            window.Telegram.WebApp.showScanQrPopup({ text: 'Sken text' });
-            
+            window.Telegram.WebApp.showScanQrPopup({ text: 'Sken tasdasddasdext' }, (data) => {
+                console.log(data);
+                window.Telegram.WebApp.closeQrScanPopup();
+                window.Telegram.WebApp.close();
             });
+            
+            
 
         // on QR code scan:
         
-        window.addEventListener('qrTextReceived', (event) => {
-            // Your code here
+        // window.addEventListener('qrTextReceived', (event) => {
+        //     // Your code here
 
-            
-            console.log(event.data)
-            window.Telegram.WebApp.close()
-        });
+
+        //     console.log(event.data)
+        //     window.Telegram.WebApp.close()
+        // });
 
     </script>
 
